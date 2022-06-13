@@ -38,10 +38,5 @@ namespace Library.Persistence.Repositories
         {
             return await dbContext.Set<T>().FindAsync(id);
         }
-
-        public Task<T> GetByNameAsync(string name)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
