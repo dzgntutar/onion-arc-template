@@ -12,5 +12,6 @@ namespace Library.Application.Interfaces.Repositories
         Task<T> GetByIdAsync(Guid id);
         Task<List<T>> GetAllAsync();
         Task<T> AddAsync(T entity);
+        Task DeleteAsync(Guid id);
     }
 }
