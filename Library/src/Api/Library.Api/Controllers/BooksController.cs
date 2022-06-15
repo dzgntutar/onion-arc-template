@@ -1,4 +1,6 @@
-﻿using Library.Application.CQRS.Queries;
+﻿using Library.Application.CQRS.Commands;
+using Library.Application.CQRS.Handlers;
+using Library.Application.CQRS.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +22,6 @@ namespace Library.Api.Controllers
         public async Task<IActionResult> Get()
         {
             return Ok( await mediator.Send(new GetAllBookQuery()));
-
         }
 
         [HttpGet("{id}")]
@@ -28,5 +29,13 @@ namespace Library.Api.Controllers
         {
             return Ok(await mediator.Send(new GetBookByIdQuery { Id=id}));
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            await mediator.Send(new DeleteBookCommand { Id = id });
+            return Ok(); 
+        }
+        
     }
 }

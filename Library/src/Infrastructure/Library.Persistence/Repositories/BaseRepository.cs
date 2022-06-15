@@ -29,6 +29,13 @@ namespace Library.Persistence.Repositories
             return entity;
         }
 
+        public async Task DeleteAsync(Guid id)
+        {
+            var entity = await dbContext.Set<T>().FindAsync(id);
+            dbContext.Set<T>().Remove(entity);
+            await dbContext.SaveChangesAsync();
+        }
+
         public async Task<List<T>> GetAllAsync()
         {
             return await dbContext.Set<T>().ToListAsync();
