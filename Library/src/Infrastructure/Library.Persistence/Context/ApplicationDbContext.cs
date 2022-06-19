@@ -10,7 +10,11 @@ namespace Library.Persistence.Context
 {
     public class ApplicationDbContext : DbContext
     {
-        DbSet<Book> Book { get; set; }
+        DbSet<Book> Books { get; set; }
+
+        public ApplicationDbContext(DbContextOptions options) :base (options)
+        {
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

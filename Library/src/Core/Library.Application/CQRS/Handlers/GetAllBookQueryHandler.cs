@@ -28,6 +28,7 @@ namespace Library.Application.CQRS.Handlers
             {
                 Id = s.Id,
                 Name = s.Name,
+                Author = s.Author,
             }).ToList();
         }
     }

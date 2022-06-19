@@ -1,6 +1,7 @@
 ﻿using Library.Application.CQRS.Commands;
 using Library.Application.CQRS.Handlers;
 using Library.Application.CQRS.Queries;
+using Library.Application.Dtos;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,6 +23,13 @@ namespace Library.Api.Controllers
         public async Task<IActionResult> Get()
         {
             return Ok( await mediator.Send(new GetAllBookQuery()));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post(BookSaveDto bookSaveDto)
+        {
+            await mediator.Send(new AddBookCommand { BookSaveDto = bookSaveDto });
+            return Ok();
         }
 
         [HttpGet("{id}")]
