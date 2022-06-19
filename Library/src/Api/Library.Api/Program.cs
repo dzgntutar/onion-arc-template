@@ -1,3 +1,4 @@
+using Library.Application;
 using Library.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddPersistenceServices();
+builder.Services.AddApplicationServices();
 
 
 var app = builder.Build();

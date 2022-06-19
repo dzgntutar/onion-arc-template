@@ -10,7 +10,7 @@ namespace Library.Domain.Entities
     public class Book : BaseEntity
     {
         public string Name { get; set; }
-        public Guid Author { get; set; }
+        public string Author { get; set; }
         public short Count { get; set; }
 
     }

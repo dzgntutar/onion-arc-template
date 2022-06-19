@@ -9,7 +9,7 @@ namespace Library.Application.Dtos
     public class BookSaveDto
     {
         public string Name { get; set; }
-        public Guid Author { get; set; }
+        public string Author { get; set; }
         public short Count { get; set; }
     }
 }
